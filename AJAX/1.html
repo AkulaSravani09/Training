@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("begin");
+        setTimeout(function() {
+            console.log("t1");
+        }, 1000);
+        setTimeout(function() {
+            console.log("t2")
+                }, 0)
+                console.log("end");
+                // output: begin, end, t2, t1
+
+        
+    </script>
+</body>
+</html>

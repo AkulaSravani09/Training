@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Tree</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .generation {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .person {
+      background-color: rgb(179, 160, 180);
+      border: 2px solid black;
+      margin: 10px;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    
+
+    .title {
+      color: rgb(211, 58, 224);
+      font-size: medium;
+      font-weight: bold;
+    }
+
+    .role {
+      color: black;
+    }
+
+    .message {
+      color: blueviolet;
+      display: none;
+      margin-top: 8px;
+    }
+
+    .person:hover .message {
+      display: block;
+    }
+
+    .family-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .spouses, .children {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <form id="tree">
+    <!-- Generation 1: Grandparents -->
+    <div class="generation">
+      <div class="person">
+        <div class="title">Sundaraiah</div>
+        <div class="role">Grandfather</div>
+        <div class="message">He is the head of the Family</div>
+      </div>
+      <div class="person">
+        <div class="title">Indiramma</div>
+        <div class="role">Grandmother</div>
+        <div class="message">Wife of Sundaraiah</div>
+      </div>
+    </div>
+
+    <!-- Generation 2: Sujatha's Family -->
+    <div class="generation">
+      <div class="family-group">
+        <!-- Parents -->
+        <div class="spouses">
+          <div class="person">
+            <div class="title">Sujatha</div>
+            <div class="role">Daughter</div>
+            <div class="message">Daughter of Sundaraiah</div>
+          </div>
+          <div class="person">
+            <div class="title">Venkatesh</div>
+            <div class="role">Son-in-law</div>
+            <div class="message">Husband of Sujatha</div>
+          </div>
+        </div>
+
+        <!-- Children -->
+        <div class="children">
+          <div class="person">
+            <div class="title">Sravani</div>
+            <div class="role">Granddaughter</div>
+            <div class="message">Daughter of Sujatha</div>
+          </div>
+          <div class="person">
+            <div class="title">Achuth</div>
+            <div class="role">Grandson</div>
+            <div class="message">Son of Sujatha</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

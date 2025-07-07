@@ -1,0 +1,46 @@
+/* Universal Selector */
+    * {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Element Selector */
+    h1 {
+      color: blue;
+    }
+
+    /* Class Selector */
+    .highlight {
+      background-color: yellow;
+    }
+
+    /* ID Selector */
+    #unique {
+      color: red;
+    }
+
+    /* Attribute Selector */
+    input[type="text"] {
+      border: 2px solid green;
+    }
+
+    /* Group Selector */
+    h2, p {
+      font-style: italic;
+    }
+
+    /* Pseudo-element Selector */
+    p::first-letter {
+      font-size: 24px;
+      color: purple;
+    }
+
+    /* Pseudo-class Selector */
+    a:hover {
+      color: orange;
+    }
+
+    /* Combinator Selectors */
+    div > span {
+      color: brown;
+    }
+ 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Tree</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .generation {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .person {
+      background-color: rgb(179, 160, 180);
+      border: 2px solid black;
+      margin: 10px;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .person img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 8px;
+      border: 2px solid white;
+    }
+
+    .title {
+      color: rgb(211, 58, 224);
+      font-size: medium;
+      font-weight: bold;
+    }
+
+    .role {
+      color: black;
+    }
+
+    .message {
+      color: blueviolet;
+      display: none;
+      margin-top: 8px;
+    }
+
+    .person:hover .message {
+      display: block;
+    }
+
+    .family-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .spouses, .children {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Connecting lines */
+    .connector {
+      position: absolute;
+      height: 40px;
+      width: 2px;
+      background-color: black;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .horizontal-line {
+      height: 2px;
+      background-color: black;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .generation-connector {
+      position: relative;
+      height: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 30px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <form id="tree">
+    <!-- Generation 1: Grandparents -->
+    <div class="generation">
+      <div class="person">
+        <img src="grandfather.jpg" alt="Sundaraiah">
+        <div class="title">Sundaraiah</div>
+        <div class="role">Grandfather</div>
+        <div class="message">He is the head of the Family</div>
+        <div class="connector"></div>
+      </div>
+      <div class="person">
+        <img src="grandmother.jpg" alt="Indiramma">
+        <div class="title">Indiramma</div>
+        <div class="role">Grandmother</div>
+        <div class="message">Wife of Sundaraiah</div>
+        <div class="connector"></div>
+      </div>
+    </div>
+
+    <!-- Connector between generations -->
+    <div class="generation-connector">
+      <div class="horizontal-line"></div>
+    </div>
+
+    <!-- Generation 2: Sujatha's Family -->
+    <div class="generation">
+      <div class="family-group">
+        <!-- Parents -->
+        <div class="spouses">
+          <div class="person">
+            <img src="mother.jpg" alt="Sujatha">
+            <div class="title">Sujatha</div>
+            <div class="role">Daughter</div>
+            <div class="message">Daughter of Sundaraiah</div>
+            <div class="connector"></div>
+          </div>
+          <div class="person">
+            <img src="father.jpg" alt="Venkatesh">
+            <div class="title">Venkatesh</div>
+            <div class="role">Son-in-law</div>
+            <div class="message">Husband of Sujatha</div>
+            <div class="connector"></div>
+          </div>
+        </div>
+
+        <!-- Connector between generations -->
+        <div class="generation-connector">
+          <div class="vertical-line"></div>
+        </div>
+
+        <!-- Children -->
+        <div class="children">
+          <div class="person">
+            <img src="daughter.jpg" alt="Sravani">
+            <div class="title">Sravani</div>
+            <div class="role">Granddaughter</div>
+            <div class="message">Daughter of Sujatha</div>
+          </div>
+          <div class="person">
+            <img src="son.jpg" alt="Achuth">
+            <div class="title">Achuth</div>
+            <div class="role">Grandson</div>
+            <div class="message">Son of Sujatha</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  background-color: #333;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a,
+.dropdown-toggle {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  background-color: #444;
+}
+
+/* Hide dropdown by default */
+.drop-downlink {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Show dropdown only when checkbox is checked */
+.dropdown-container input:checked + .drop-downlink {
+  display: block;
+}
+
+.drop-downlink li a {
+  padding: 10px 20px;
+  color: white;
+}
+
+.drop-downlink li a:hover {
+  background-color: #555;
+}

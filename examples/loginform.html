@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script type="text/javascript">
+        function validateForm() {
+            var uname = document.login.un.value;
+            var pwd = document.login.pwd.value;
+            var email = document.login.email.value;
+            var st = "";
+            var i = 0;
+
+            if (uname.length == 0 || uname == "") {
+                st += "Username\n";
+                i++;
+            }
+            if (pwd.length == 0 || pwd == "") {
+                st += "Password\n";
+                i++;
+            }
+            if (email.length == 0 || email == "") {
+                st += "Email\n";
+                i++;
+            }
+
+            if (i == 0) {
+                return true;
+            } else {
+                alert("Please enter the following fields:\n" + st);
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="login" onsubmit="return validateForm()">
+        <h1>Login Form</h1>
+        <label for="un">Username:</label><br>
+        <input type="text" id="un" name="un"><br><br>
+
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+
+        <input type="submit" value="Login">
+        <input type="reset" value="Reset"><br><br>
+    </form>
+</body>
+</html>

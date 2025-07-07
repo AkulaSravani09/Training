@@ -1,0 +1,8 @@
+AJAX Operation
+•	A client event occurs.
+•	An XMLHttpRequest object is created.
+•	The XMLHttpRequest object is configured.
+•	The XMLHttpRequest object makes an asynchronous request to the Webserver.
+•	The Webserver returns the result containing XML document.
+•	The XMLHttpRequest object calls the call back () function and processes the result.
+•	The HTML DOM is updated.

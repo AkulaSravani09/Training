@@ -1,0 +1,21 @@
+function third() { }
+function second() { }
+function first() { }
+
+first();
+second();
+third();
+second();
+
+setTimeout(function a() {}, 500);
+setTimeout(function b() {}, 0);
+
+fetch('https://www.example.com')
+  .then(function m() {});
+
+Promise.resolve()
+  .then(function o() {});
+
+Promise.reject()
+  .catch(function p() {});
+// run this in java visualizer 9000 

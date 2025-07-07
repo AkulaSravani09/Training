@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:300px;
+            height:250px;
+            padding:10px;
+            background-color: rgb(243, 180, 180);
+            border: 1px solid black;
+            ;
+        }
+        #box{
+            transform:rotate(30deg);
+            -ms-transform:rotate(30deg);
+            -moz-transform:rotate(30deg);
+            -webkit-transform:rotate(30deg);
+            -o-transform:rotate(30deg);
+            background-color:rgb(243, 243, 198);
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+   <div onmouseover="this.style.color='yellow'"> Welcome to CSS - Malla Reddy University</div>
+   <div id="box" onmouseenter="changeFontSize(); changeColor();">Hello, World! AIML 3RD Year Students U Guys Are Rocking </div>
+</body>
+</center>
+<script>
+        function changeFontSize() {
+            document.getElementById("box").style.fontSize = "2em";
+        }
+        function changeColor() {
+            document.getElementById("box").style.color = "blue";
+        }
+    </script>
+</html>
