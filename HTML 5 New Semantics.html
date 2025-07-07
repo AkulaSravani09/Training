@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html 5 New Semantics</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <header>
+    <h1> City Gallery </h1>
+    </header>
+
+    <section>
+        <nav>
+        <ul>
+            <li>London</li>
+            <li>Paris</li>
+            <li>Tokyo</li>
+            <li>South Korea</li>
+            <li>Europe</li>
+            <li>India</li>
+        </ul>
+    </nav>  
+
+    <article>
+        <h2>Explore the Cities</h2>
+        <p>Welcome to the City Gallery! Here you can explore various cities around the world.</p>
+        <p>Each city has its own unique culture, history, and attractions.</p>
+        <p>Feel free to browse through the gallery and learn more about these amazing places!</p>
+        <p> Thankyou!!! </p>
+    </article>
+
+    <form-container>
+    <form-section>
+      <table border="1">
+        <tr><td>First Name</td><td><input type="text" name="firstName" placeholder="Enter First Name" pattern="[A-Za-z\s]+" title="Only letters allowed" required></td></tr>
+        <tr><td>Last Name</td><td><input type="text" name="lastName" placeholder="Enter Last Name" pattern="[A-Za-z\s]+" title="Only letters allowed" required></td></tr>        <tr>
+          <td>Gender</td>
+          <td>
+            <input type="radio" name="gender" value="Male" required> Male <br>
+            <input type="radio" name="gender" value="Female"> Female <br>
+          </td>
+        </tr>
+        <tr><td>Email</td><td><input type="email" name="email" placeholder="Email" required></td></tr>
+        <tr>
+          <td>Mobile</td>
+          <td><input type="text" name="mob" placeholder="+91" pattern="[6-9][0-9]{9}" title="Enter a valid 10-digit mobile number" required></td>
+        </tr>
+        <tr><td>Address</td><td><input type="text" name="address" required></td></tr>
+        <tr>
+          <td>OPT Group 1</td>
+          <td>
+            <input list="locations1" name="location1" placeholder="Select or type your location" required>
+            <datalist id="locations1">
+              <option value="London">
+              <option value="Paris">
+              <option value="Tokyo">
+              <option value="Japan">
+              <option value="India">
+              <option value="Europe">
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td>OPT Group 2</td>
+          <td>
+            <input list="locations2" name="location2" placeholder="Select or type your location" required>
+            <datalist id="locations2">
+              <option value="London">
+              <option value="Paris">
+              <option value="Tokyo">
+              <option value="Japan">
+              <option value="India">
+              <option value="Europe">
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align:center;">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="checkbox" name="terms" id="terms" required>
+            <label for="terms">I agree to the <a href="#" target="_blank">Terms and Conditions</a></label>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <img src="travel3.jpeg" style="width:auto; height:390px;">
+     </section>
+     
+
+    <footer>
+        <p>© 2023 City Gallery. All rights reserved.</p>
+    </footer>
+</body>
+</html>

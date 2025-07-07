@@ -1,0 +1,117 @@
+/* styles.css - Pastel Theme Portfolio Styling */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #faf9f6;
+  color: #333;
+  line-height: 1.6;
+}
+
+header.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: #e9ddf4;
+  flex-wrap: wrap;
+}
+
+.intro {
+  max-width: 600px;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.desc {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.buttons a {
+  text-decoration: none;
+  color: #333;
+  background-color: #dbcdf0;
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.buttons a:hover {
+  background-color: #d1c4e9;
+}
+
+figure img {
+  max-width: 200px;
+  border-radius: 10px;
+  border: 2px solid #d3c0eb;
+}
+
+main {
+  padding: 2rem;
+}
+
+h2 {
+  color: #6a4c93;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card, .card-group > .card {
+  background-color: #f1ecfb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+form button {
+  background-color: #d6c1ec;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #cdb3e9;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e9ddf4;
+  color: #444;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}

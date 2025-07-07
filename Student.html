@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .form-container {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .gender-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Registration Form</h2>
+  <form action="/register" method="post">
+    
+    <label>First Name:</label>
+    <input type="text" name="firstName" required>
+
+    <label>Last Name:</label>
+    <input type="text" name="lastName" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <label>Gender:</label>
+    <div class="gender-group">
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      <label><input type="radio" name="gender" value="Other"> Other</label>
+    </div>
+
+    <label>Address:</label>
+    <textarea name="address" rows="3" required></textarea>
+
+
+    <label>Highest Education:</label>
+    <select name="education" required>
+      <option value="">Select</option>
+      <option>High School</option>
+      <option>Diploma</option>
+      <option>Bachelor's</option>
+      <option>Master's</option>
+      <option>PhD</option>
+    </select>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+</body>
+</html>

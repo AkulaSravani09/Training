@@ -1,0 +1,62 @@
+
+
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+        background-color: #788df7;
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+        }
+
+        nav {
+        float: left;
+        width: 20%;
+        height: 350px; 
+        background: #ccc;
+        padding: 20px;
+        font-size: 20px;
+        }
+
+        nav ul {
+        list-style-type: none;
+        padding: 0;
+        }
+
+        article {
+        float: left;
+        padding: 20px;
+        width: 20%;
+        background-color: #eceef8;
+        height: 350px; 
+        }
+
+        section::after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        footer {
+        position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            background-color: #788df7;
+            color: rgb(248, 243, 243)
+        }
+        form-section table {
+        float: left;
+        width: 25%;
+        height: 390px; 
+        background: #f6f7f7;
+        padding: 20px;
+        font-size: 20px;
+        box-sizing: border-box;
+        }
+       

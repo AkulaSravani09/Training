@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("https://t4.ftcdn.net/jpg/02/55/63/05/360_F_255630580_OwTr2SjKS2aob36NNvatP2gRlQeVX1Ul.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        h2 {
+            text-align: center;
+            color: rgb(33, 88, 23);
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .left-image img {
+            width: 600px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+        table {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            border-collapse: collapse;
+        }
+        table td {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Employee Registration Form</h2>
+    <div class="container">
+        <div class="left-image">
+            <img src="https://media.istockphoto.com/id/1352606416/photo/young-woman-working-at-home-stock-photo.jpg?s=612x612&w=0&k=20&c=uKfBCoTeP54nA8KOzXDLIyoU31nZ4a4UreFE4p_x_3A=" alt="Company Image">
+        </div>
+
+        <form name="regForm" method="POST" action="./EmpRegController">
+            <table border="2">
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="fName" required placeholder="Enter First Name" pattern="[A-Za-z]{2,20}" title="Only alphabets, 2-20 characters" autofocus/></td>
+                </tr>
+                <tr>
+                    <td>last Name</td>
+                    <td><input type="text" name="SName" required placeholder="Enter last Name" pattern="[A-Za-z]{2,20}" title="Only alphabets, 2-20 characters"/></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="Email" required placeholder="Enter Email Address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid email like abc@example.com"/></td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <td><input type="number" name="Salary" required placeholder="Enter Salary" min="100000" title="Minimum salary is 100000"/></td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td><input type="number" name="PhoneNumber" required placeholder="Enter Phone Number" pattern="[6-9][0-9]{9}" title="Enter 10-digit Indian mobile number starting with 6-9"/></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="gender" value="Male"> Male
+                        <input type="radio" name="gender" value="Female"> Female
+                        <input type="radio" name="gender" value="Other"> Other
+                    </td>
+                </tr>  
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="date" name="dob" required/></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><textarea name="address" rows="3" cols="20" placeholder="Enter Address" pattern=".{5,100}" title="Address should be 5-100 characters"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>
+                        <select name="department">
+                            <option value="HR">HR</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Development">Development</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Support">Support</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>
+                        <select name="Location">
+                            <optgroup label="Telangana & Andhra">
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Vijayawada">Vijayawada</option>
+                            </optgroup>
+                            <optgroup label="Other Cities">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Goa">Goa</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Qualification</td>
+                    <td>
+                        <select name="qualification">
+                            <option value="Select">--Select--</option>
+                            <optgroup label="School Level">
+                                <option value="SSC">SSC</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Diploma">Diploma</option>
+                            </optgroup>
+                            <optgroup label="Graduation">
+                                <option value="B.Tech">B.Tech</option>
+                                <option value="M.Tech">M.Tech</option>
+                                <option value="MBA">MBA</option>
+                            </optgroup>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Experience (in years)</td>
+                    <td>
+                        <input type="number" name="experience" min="0" max="40" required placeholder="Enter Years of Experience"> 
+                        <br><br>
+                        (OR) Use Range: 
+                        <input type="range" name="experience_range" min="0" max="40" value="5" oninput="this.nextElementSibling.value = this.value">
+                        <output>5</output> Years
+                    </td>
+                </tr>
+                <tr>
+                    <td>Expected Salary Range (in Lakhs)</td>
+                    <td>
+                        <input type="range" name="expected_salary" min="1" max="50" value="10" oninput="this.nextElementSibling.value = this.value">
+                        <output>10</output> LPA
+                    </td>
+                </tr>
+                <tr>
+                    <td>Skills</td>
+                    <td>
+                        <input type="checkbox" name="skills" value="Java"> Java
+                        <input type="checkbox" name="skills" value="Python"> Python
+                        <input type="checkbox" name="skills" value="SQL"> SQL
+                        <input type="checkbox" name="skills" value="Cloud"> Cloud
+                    </td>
+                </tr>
+                <tr>
+                    <td>Upload Resume</td>
+                    <td><input type="file" name="resume"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" name="terms" id="terms" required>
+                        <label for="terms">I agree to the <a href="#" target="_blank">Terms and Conditions</a></label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+</html>
