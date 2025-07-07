@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // define a function which will work as a method
+        function addPrice(amount) {
+            this.price = amount;
+        }
+        function Book(title, author) {
+            this.title = title;
+            this.author = author;
+            // Assign that method as property.
+            this.addPrice = addPrice;
+
+        }
+    
+    </script>
+</head>
+<body>
+    <h1> Java Script - oops</h1>
+    <script>
+        var myBook = new Book("perl", " Mohtashim");
+        myBook.addPrice(1000);
+        document.write("Book Title: " + myBook.title + "<br>");
+        document.write("Book Author: " + myBook.author + "<br>");
+        document.write("Book Price: " + myBook.price + "<br>");
+
+    </script>
+
+</body>
+</html>

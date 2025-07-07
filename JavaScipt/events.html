@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let focusAlertShown = false;
+        let blurAlertShown = false;
+        let mouseOverAlertShown = false;
+        let keyUpAlertShown = false;
+        let fileAlertShown = false;
+        let dropdownAlertShown = false;
+        let buttonAlertShown = false;
+        let checkboxAlertShown = false;
+        let submitAlertShown = false;
+        let resetAlertShown = false;
+
+        function focusLost() {
+            if (!focusAlertShown) {
+                alert("I lost the focus!");
+                focusAlertShown = true;
+            }
+        }
+        function textChanged() {
+            if (!blurAlertShown) {
+                alert("Dont change the Data");
+                blurAlertShown = true;
+            }
+        }
+        function mouseOverAlert() {
+            if (!mouseOverAlertShown) {
+                alert("Mouse Over Event Triggered!");
+                mouseOverAlertShown = true;
+            }
+        }
+        function keyUpAlert() {
+            if (!keyUpAlertShown) {
+                alert("Key Up Event Triggered!");
+                keyUpAlertShown = true;
+            }
+        }
+        function fileAlert() {
+            if (!fileAlertShown) {
+                alert("File Selected!");
+                fileAlertShown = true;
+            }
+        }
+        function dropdownAlert() {
+            if (!dropdownAlertShown) {
+                alert("Dropdown Changed!");
+                dropdownAlertShown = true;
+            }
+        }
+        function buttonAlert() {
+            if (!buttonAlertShown) {
+                alert("Button Clicked!");
+                buttonAlertShown = true;
+            }
+        }
+        function checkboxAlert() {
+            if (!checkboxAlertShown) {
+                alert("Checkbox Clicked!");
+                checkboxAlertShown = true;
+            }
+        }
+        function submitAlert() {
+            if (!submitAlertShown) {
+                alert("Form Submitted!");
+                submitAlertShown = true;
+            }
+        }
+        function resetAlert() {
+            if (!resetAlertShown) {
+                alert("Form Reset!");
+                resetAlertShown = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h1>Events in JavaScript</h1>
+        <form>
+            <input type="text" onfocus="focusLost()" onblur="textChanged()" placeholder="Focus and Blur Events">
+            <br><br>
+            <button type="button" onclick="buttonAlert()">Click Me!</button>
+            <br><br>
+            <a href="#" onmouseover="mouseOverAlert()">Hover over this link</a>
+            <br><br>
+            <input type="checkbox" id="check" onclick="checkboxAlert()">
+            <label for="check">Check this box</label>
+            <br><br>
+            <select onchange="dropdownAlert()">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+            <br><br>
+            <textarea onkeyup="keyUpAlert()" placeholder="Type something here..."></textarea>
+            <br><br>
+            <input type="file" onchange="fileAlert()">
+            <br><br>
+            <input type="submit" value="Submit" onclick="submitAlert(); return false;">
+            <input type="reset" value="Reset" onclick="resetAlert()">
+        </form>
+    </center>
+</body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script- Collection</title>
+</head>
+<body style="background-color:antiquewhite;">
+    <font color="green" size="5">
+        Set is a ES6 Feature - JavaScript 2015<br>
+        ES6 Fully Supported In All Browsers Since June 2017<br>
+    </font>
+    <script>
+        var mySet = new Set();
+        mySet.add("Sravani");
+        mySet.add("Achuth");
+        mySet.add("Sujatha");
+        mySet.add("Aadhya");
+        mySet.add("Sravani"); // Duplicate, will not be added
+
+        document.write("Size:" + mySet.size + "<br>");
+        for (const name of mySet) {
+            document.write(name + "<br>");
+        }
+
+        let myFaculties = new Set(['Sravani', 'Achuth', 'Sujatha', 'Aadhya']);
+        for (const name of myFaculties) {
+            document.write(name + "<br>");
+        }
+        document.write("typeof:" + typeof myFaculties + "<br>");
+        let result = myFaculties instanceof Set;
+        document.write("instanceof:" + result + "<br>");
+        document.write("size:" + myFaculties.size + "<br>");
+
+        // Use myFaculties instead of allNames
+        myFaculties.forEach(function(name) {
+            document.write(name + "<br>");
+        });
+        myFaculties.clear();
+        document.write("After Clear Method<br>");
+        myFaculties.forEach(function(name) {
+            document.write(name + "<br>");
+        });
+    </script>
+</body>
+</html>

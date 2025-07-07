@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Event Handler Example</title>
+</head>
+<body>
+    <div id="imgContainer" style="margin-top:20px;">
+        <img id="myImage" src="C:\Users\akula\Java Practice\UI Training\EventPlanning\festival.jpg" alt="Sample Image" width="200" style="border: 3px solid lightgray;">
+    </div>
+    <script>
+        var img = document.getElementById("myImage");
+        function imageClick() {
+            alert("Image was clicked!");
+        }
+        function imageMouseOver() {
+            img.style.border = "3px solid green";
+        }
+        function imageMouseOut() {
+            img.style.border = "3px solid lightgray";
+        }
+        img.addEventListener("click", imageClick);
+        img.addEventListener("mouseover", imageMouseOver);
+        img.addEventListener("mouseout", imageMouseOut);
+    </script>
+</body>
+</html>

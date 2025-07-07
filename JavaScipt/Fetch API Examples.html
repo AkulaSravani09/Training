@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "output"> </div>
+    <script>
+        let output = document.getElementById("output");
+        let options = {
+            method: 'GET',
+        }
+        let URL = "https://192.168.137.75.4017/SpringBootApp/getcustomers";
+        fetch(URL, options)
+        .then(res => res.json() )
+        .then(res => {
+            output.innerHTML += "The data returned from the API is - " + JSON.stringify(res);
+        })
+        .catch(err => {
+            output.innerHTML += "The error returned from the API is - "
+        })
+    </script>
+</body>
+</html>

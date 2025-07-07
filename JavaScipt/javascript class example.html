@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainee Registration</title>
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 420px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 28px 24px 28px;
+        }
+        h2 {
+            text-align: center;
+            color: #2d3a4b;
+            margin-bottom: 24px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #34495e;
+            font-size: 15px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 95%;
+            padding: 8px 10px;
+            margin-top: 4px;
+            margin-bottom: 16px;
+            border: 1px solid #bfc9d1;
+            border-radius: 5px;
+            font-size: 15px;
+            background: #f9fafb;
+        }
+        .courses-list {
+            margin-bottom: 18px;
+        }
+        .courses-list label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: normal;
+        }
+        button[type="submit"], button {
+            background: #4f8cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 22px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover, button:hover {
+            background: #2563eb;
+        }
+        #output {
+            margin-top: 28px;
+            background: #eaf1fb;
+            border-radius: 8px;
+            padding: 18px 16px;
+            color: #222;
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        strong {
+            color: #2d3a4b;
+        }
+    </style>
+    <script>
+        class Trainee {
+            constructor(firstname, lastname, password, courses, coursecost) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.courses = courses;
+                this.coursecost = coursecost;
+                this.password = password;
+            }
+            getName() {
+                return this.firstname + " " + this.lastname;
+            }
+            getCourses() {
+                return this.courses.join(", ");
+            }
+            getCourseCost() {
+                return this.coursecost;
+            }
+            updatePassword(newPassword) {
+                this.password = newPassword;
+            }
+            getTraineeDetails() {
+                return `<strong>Name:</strong> ${this.getName()}<br>` +
+                    `<strong>Selected Courses:</strong> ${this.getCourses()}<br>` +
+                    `<strong>Total Course Cost:</strong> Rs.${this.getCourseCost()}<br>` +
+                    `<strong>Password:</strong> ${this.password}<br>`;
+            }
+        }
+
+        const courses = {
+            "Java": 5000,
+            "Python": 4500,
+            "Web Development": 6000,
+            "Data Science": 7000,
+            "AI & ML": 8000
+        };
+
+        let traineeObj = null;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('traineeForm').onsubmit = function(e) {
+                e.preventDefault();
+                const firstname = document.getElementById('fname').value;
+                const lastname = document.getElementById('lname').value;
+                const password = document.getElementById('password').value;
+                const checkedCourses = Array.from(document.querySelectorAll('input[name="course"]:checked')).map(cb => cb.value);
+                let totalcost = checkedCourses.reduce((sum, c) => sum + (courses[c] || 0), 0);
+                traineeObj = new Trainee(firstname, lastname, password, checkedCourses, totalcost);
+             document.getElementById('output').innerHTML = traineeObj.getTraineeDetails() + `<br><button onclick="updatePassword()">Update Password</button>`;
+            };
+        });
+
+        function updatePassword() {
+            const newPassword = prompt("Enter new password:");
+            if (newPassword && traineeObj) {
+                traineeObj.updatePassword(newPassword);
+                document.getElementById('output').innerHTML = traineeObj.getTraineeDetails() + `<br><button onclick="updatePassword()">Update Password</button>`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Trainee Registration</h2>
+        <form id="traineeForm" autocomplete="off">
+            <label>First Name:
+                <input type="text" id="fname" required>
+            </label>
+            <label>Last Name:
+                <input type="text" id="lname" required>
+            </label>
+            <label>Password:
+                <input type="password" id="password" required>
+            </label>
+            <div class="courses-list">
+                <strong>Select Courses:</strong><br>
+                <label><input type="checkbox" name="course" value="Java"> Java </label>
+                <label><input type="checkbox" name="course" value="Python"> Python </label>
+                <label><input type="checkbox" name="course" value="Web Development"> Web Development </label>
+                <label><input type="checkbox" name="course" value="Data Science"> Data Science </label>
+                <label><input type="checkbox" name="course" value="AI & ML"> AI & ML </label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="output"></div>

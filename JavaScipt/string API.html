@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str="Welcome to Challa's Labs";
+        var str1=" Hello";
+        document.write(str + "<br>");
+        document.write(str.length + "<br>");
+        document.write(str.toUpperCase() + "<br>");
+        document.write(str.toLowerCase() + "<br>");
+        document.write(str.indexOf("t") + "<br>");
+        document.write(str.search("t") + "<br>");
+        document.write(str.charAt(8) + "<br>");
+        document.write(str.split("") + "<br>");
+        document.write(str.split(" ") + "<br>");
+        document.write(str.slice(2,8) + "<br>");
+        document.write(str.replace("SS", "AA") + "<br>");
+        document.write(str.concat(str1) + "<br>");
+        document.write(str.trim() + "<br>");
+        document.write(str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase() + "<br>");
+        let fruits = ['apple', 'banana'];
+        fruits.push('orange'); //['apple', 'banana', 'orange']
+        document.write(fruits + "<br>");
+        let lastFruit = fruits.pop(); //removes the last element
+        document.write(lastFruit + "<br>"); //orange
+        let firstFruit = fruits.shift(); //removes the first element
+        document.write(firstFruit + "<br>"); //apple
+        fruits.unshift('kiwi'); //adds an element to the beginning
+        let fruits1 = ['apple', 'banana'];
+        let moreFruits1 = ['orange', 'mango'];
+        let allFruits = fruits1.concat(moreFruits1); //combines
+        document.write(allFruits + "<br>"); //['apple', 'banana', 'orange', 'mango']
+        let citrus = fruits.slice(2,4);
+        document.write(citrus + "<br>"); //['orange', 'mango']
+        fruits.forEach(function(fruit) {
+            console.log(fruit);
+            document.write(fruit+ "<br>");
+        });
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

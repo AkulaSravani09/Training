@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Form</title>
+  <style>
+    body {
+      background-color: rgb(228, 205, 248);
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px #888;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    #id1 {
+      border: 2px solid #333;
+      background-color: #f9f9f9;
+      padding: 15px;
+      margin: 20px auto;
+      width: 50%;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+      display: none;
+    }
+
+    /* Custom Confirm Box */
+    #confirmBox {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 35%;
+      width: 30%;
+      background-color: rgb(147, 116, 145);
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px #555;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    #confirmBox h3 {
+      margin-bottom: 20px;
+    }
+
+    #confirmBox button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+  </style>
+
+  <script>
+    let formValues = {};
+
+    function showConfirmBox(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Capture form data
+      const form = document.myEmpForm;
+      formValues = {
+        empNumber: form.empNumber.value,
+        empName: form.empName.value,
+        empAddress: form.empAddress.value,
+        empEmail: form.empEmail.value,
+        empPhone: form.empPhone.value,
+        empSalary: form.empSalary.value,
+        empDepartment: form.empDepartment.value
+      };
+
+      document.getElementById("confirmBox").style.display = "block";
+    }
+
+    function submitData() {
+      document.getElementById("confirmBox").style.display = "none";
+
+      // Show the result box
+      const resultBox = document.getElementById("id1");
+      resultBox.style.display = "block";
+      resultBox.innerHTML =
+        `<p style="color:red;"><strong>Employee Number:</strong> ${formValues.empNumber}</p>
+         <p style="color:blue;"><strong>Employee Name:</strong> ${formValues.empName}</p>
+         <p style="color:green;"><strong>Employee Address:</strong> ${formValues.empAddress}</p>
+         <p style="color:purple;"><strong>Employee Email:</strong> ${formValues.empEmail}</p>
+         <p style="color:orange;"><strong>Employee Phone:</strong> ${formValues.empPhone}</p>
+         <p style="color:brown;"><strong>Employee Salary:</strong> ${formValues.empSalary}</p>
+         <p style="color:deeppink;"><strong>Employee Department:</strong> ${formValues.empDepartment}</p>`;
+
+      alert("Form submitted successfully.");
+    }
+
+    function cancelSubmit() {
+      document.getElementById("confirmBox").style.display = "none";
+      alert("Form submission cancelled.");
+    }
+  </script>
+</head>
+<body>
+  <center>
+    <h1>Employee Form</h1>
+    <p>Please fill in the details below:</p>
+    <form method="POST" name="myEmpForm" onsubmit="showConfirmBox(event)">
+      <table>
+        <tr>
+          <td>Employee Number</td>
+          <td><input type="number" name="empNumber" required placeholder="Employee number" /></td>
+        </tr>
+        <tr>
+          <td>Employee Name</td>
+          <td><input type="text" name="empName" required placeholder="Employee name" /></td>
+        </tr>
+        <tr>
+          <td>Employee Address</td>
+          <td><input type="text" name="empAddress" placeholder="Employee address" /></td>
+        </tr>
+        <tr>
+          <td>Employee Email</td>
+          <td><input type="email" name="empEmail" placeholder="Employee email" /></td>
+        </tr>
+        <tr>
+          <td>Employee Phone</td>
+          <td><input type="tel" name="empPhone" placeholder="Employee phone" /></td>
+        </tr>
+        <tr>
+          <td>Employee Salary</td>
+          <td><input type="number" name="empSalary" placeholder="Employee salary" /></td>
+        </tr>
+        <tr>
+          <td>Employee Department</td>
+          <td>
+            <select name="empDepartment">
+              <option value="HR">HR</option>
+              <option value="IT">IT</option>
+              <option value="Finance">Finance</option>
+              <option value="Marketing">Marketing</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label>
+              <input type="checkbox" name="confirm" required />
+              I confirm that the above information is correct.
+            </label>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </center>
+
+  <!-- Custom Confirmation Box -->
+  <div id="confirmBox">
+    <h3>Do you want to submit the form?</h3>
+    <button onclick="submitData()">Yes</button>
+    <button onclick="cancelSubmit()">No</button>
+  </div>
+
+  <!-- Result Display -->
+  <div id="id1"></div>
+</body>
+</html>

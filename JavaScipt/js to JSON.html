@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marshalling</title>
+</head>
+<body>
+    <script>
+        const data=[{         // basic js object
+            name:"Sravani",
+            age:19,
+            qualification:"B.Tech",
+            studiedAt:"Malla Reddy University",
+            skills:["JavaScript","HTML","CSS","Python","Java"]
+        }];
+        document.write(data);
+        const json= JSON.stringify(data); // converting js object to json string
+        document.write(json);
+    </script>
+</body>
+</html>

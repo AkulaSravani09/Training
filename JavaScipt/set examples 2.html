@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Create employee objects
+        var emp = { empNo: 111, empName: "Sravani", empPwd: "Admin@123" };
+        var emp1 = { empNo: 112, empName: "Achuth", empPwd: "Admin@123" };
+        var emp2 = { empNo: 113, empName: "Ammu", empPwd: "Admin@123" };
+
+        // Create a Set and add employee objects
+        var empSet = new Set();
+        empSet.add(emp);
+        empSet.add(emp1);
+        empSet.add(emp2);
+
+        // Display each employee's details using for...of
+        for (var x of empSet) {
+            document.write("Emp No: " + x.empNo + "<br>");
+            document.write("Emp Name: " + x.empName + "<br>");
+            document.write("Emp Password: " + x.empPwd + "<br><br>");
+        }
+        document.write("<hr>");
+
+        // Using keys() iterator (same as values() for Set)
+        var iterator = empSet.keys();
+        for (var x of iterator) {
+            const json = JSON.stringify(x);
+            document.write(json + "<br>");
+        }
+        document.write("<hr>");
+
+        // forEach (corrected variable name to empSet)
+        empSet.forEach(function(value) {
+            document.write(value.empNo + "<br>");
+            document.write(value.empName + "<br>");
+            document.write(value.empPwd + "<br>");
+        });
+        document.write("<hr>");
+
+        // forEach with JSON output
+        empSet.forEach(function(value) {
+            const json = JSON.stringify(value);
+            document.write(json + "<br>");
+        });
+        document.write("<hr>");
+
+        // 1. Check if an employee exists by empNo
+        document.write("<b>Check if employee 112 exists:</b><br>");
+        let exists = false;
+        for (let emp of empSet) {
+            if (emp.empNo === 112) {
+                exists = true;
+                break;
+            }
+        }
+        document.write("Employee 112 exists: " + exists + "<br>");
+        document.write("<hr>");
+
+        // 2. Remove an employee by empNo
+        document.write("<b>Remove employee 112 and display remaining:</b><br>");
+        for (let emp of empSet) {
+            if (emp.empNo === 112) {
+                empSet.delete(emp);
+                break;
+            }
+        }
+        empSet.forEach(function(emp) {
+            document.write(emp.empNo + " " + emp.empName + "<br>");
+        });
+        document.write("<hr>");
+
+        // 3. Count employees with a specific password
+        document.write("<b>Count employees with password 'Admin@123':</b><br>");
+        let count = 0;
+        empSet.forEach(function(emp) {
+            if (emp.empPwd === "Admin@123") count++;
+        });
+        document.write("Count: " + count + "<br>");
+        document.write("<hr>");
+
+        // 4. List all employee names as a comma-separated string
+        document.write("<b>All employee names:</b><br>");
+        let names = [];
+        empSet.forEach(function(emp) {
+            names.push(emp.empName);
+        });
+        document.write(names.join(", ") + "<br>");
+        document.write("<hr>");
+    </script>
+</body>
+</html>

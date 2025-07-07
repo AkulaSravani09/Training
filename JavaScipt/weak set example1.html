@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weak set example</title>
+</head>
+<body>
+    <script>
+        var emp = { empNo: 111, empName: "Sravani", empPwd: "Admin@123" };
+        var emp1 = { empNo: 112, empName: "Achuth", empPwd: "Admin@123" };
+        var emp2 = { empNo: 113, empName: "Ammu", empPwd: "Admin@123" };
+        let empWeakSet = new WeakSet([emp, emp1, emp2]);
+
+        document.write("Contains emp: " + empWeakSet.has(emp) + "<br>");
+        document.write("Contains emp1: " + empWeakSet.has(emp1) + "<br>");
+        document.write("Contains emp2: " + empWeakSet.has(emp2) + "<br>");
+
+        // WeakSet is not iterable, so you cannot use forEach or for...of
+
+        let result = empWeakSet.delete(emp);
+        document.write("emp deleted: " + result + "<br>");
+        document.write("Contains emp after delete: " + empWeakSet.has(emp) + "<br>");
+    </script>
+</body>
+</html>

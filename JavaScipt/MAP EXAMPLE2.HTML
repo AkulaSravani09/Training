@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Map Example</title>
+</head>
+<body>
+    <script>
+        // Create a Map to store students
+        const stuMap = new Map();
+
+        // Add 5 students using prompt (simulating command line input)
+        for (let i = 1; i <= 5; i++) {
+            alert("Enter details for Student " + i);
+            let studentId = prompt("Enter Student ID:");
+            let traineeId = prompt("Enter Trainee ID:");
+            let name = prompt("Enter Name:");
+            // Store studentId as number for easier searching
+            stuMap.set(Number(studentId), {
+                traineeId: traineeId,
+                name: name,
+            });
+        }
+
+        // Prompt user to enter a student ID to search
+        let searchId = prompt("Enter student ID to search:");
+        searchId = Number(searchId);
+
+        // Search for the student using get()
+        let student = stuMap.get(searchId);
+
+        if (student) {
+            document.write("<h3>Student Details</h3>");
+            document.write("Student ID: " + searchId + "<br>");
+            document.write("Trainee ID: " + student.traineeId + "<br>");
+            document.write("Name: " + student.name + "<br>");
+        } else {
+            document.write("Student not found.");
+        }
+    </script>
+</body>
+</html>

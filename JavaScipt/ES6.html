@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
+    <title>Array And ES6 Methods</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let numbers = [4, 2, 5, 1, 3];
+        document.write(numbers+ "<br>");
+        numbers.sort();
+        document.write(numbers + "<br>");
+        numbers.reverse();
+        document.write(numbers + "<br>");
+        let variable = numbers.join("@");
+        document.write(variable + "<br>");
+        let numbers2 = numbers.map(function(number) {
+            return number * 2;
+        });
+        document.write(numbers2 + "<br>");
+        let even = numbers.filter(function(number) {
+            return number % 2 === 0;
+        });
+        document.write(even + "<br>");
+        let sum = numbers.reduce(function(accumlator, currentValue) {
+            return accumlator + currentValue;
+        }, 0);
+        document.write(sum + "<br>");
+    </script>
+
+</body>
+</html>

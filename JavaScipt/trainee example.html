@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trainee JSON Table</title>
+</head>
+<body>
+  <h1>Trainee Info</h1>
+  <div id="json-output"></div>
+  <div id="table-output"></div>
+
+  <script>
+    var trainees = [];
+    for (var i = 0; i < 5; i++) {
+      alert("Enter details for Trainee " + (i + 1));
+      var name = prompt("Name:");
+      var age = prompt("Age:");
+      var id = prompt("ID:");
+      var trainee = {
+        name: name,
+        age: age,
+        id: id,
+        
+      };
+      trainees.push(trainee);
+    }
+
+    // JSON Output
+    var jsonData = JSON.stringify(trainees, null, 2);
+    document.getElementById("json-output").innerHTML = "<h2>JSON Data</h2><pre>" + jsonData + "</pre>";
+
+    // Table Output
+    var table = "<table border='1'><tr><th>Name</th><th>Age</th><th>ID</th></tr>";
+    for (var j = 0; j < trainees.length; j++) {
+      table += "<tr>" +
+        "<td>" + trainees[j].name + "</td>" +
+        "<td>" + trainees[j].age + "</td>" +
+        "<td>" + trainees[j].id + "</td>" +
+        "</tr>";
+    }
+    table += "</table>";
+    document.getElementById("table-output").innerHTML = "<h2>Trainees Table</h2>" + table;
+  </script>
+</body>
+</html>

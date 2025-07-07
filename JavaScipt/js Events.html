@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events Example</title>
+    <script>
+        function showAlert() {
+            alert("Button clicked!");
+        }
+        function changeText(element) {
+            element.innerHTML = "Mouse Over Event Triggered!";
+        }
+        function resetText(element) {
+            element.innerHTML = "Hover over me!";
+        }
+        function inputChanged() {
+            document.getElementById("output").innerText = "Input changed!";
+        }
+    </script>
+</head>
+<body>
+    <h2>JavaScript Events Demo</h2>
+    <button onclick="showAlert()">Click Me</button>
+    <br><br>
+    <div onmouseover="changeText(this)" onmouseout="resetText(this)" style="padding:10px; background:#eee; width:200px; text-align:center;">
+        Hover over me!
+    </div>
+    <br>
+    <input type="text" onchange="inputChanged()" placeholder="Type something and press Enter">
+    <p id="output"></p>
+</body>
+</html>

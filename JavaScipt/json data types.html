@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const data = [
+        {
+            name: "Sravani", // string
+            age: 19,       // number
+            qualification: "B.tech", // string
+            isStudent: true, // boolean
+            marks:[ 85, 78, 90], // array of numbers
+            address: {
+                district: "Wanaparthy",
+                pincode: 509103,
+                state: "Telangana",
+            }
+
+
+        }];
+        document.write(data);
+        const json = JSON.stringify(data); // converting js obj to json string
+        document.write(json);
+    </script>
+</body>
+</html>

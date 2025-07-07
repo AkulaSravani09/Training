@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee CRUD</title>
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 28px 24px 28px;
+        }
+        h2 {
+            text-align: center;
+            color: #2d3a4b;
+            margin-bottom: 24px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #34495e;
+            font-size: 15px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 95%;
+            padding: 8px 10px;
+            margin-top: 4px;
+            margin-bottom: 16px;
+            border: 1px solid #bfc9d1;
+            border-radius: 5px;
+            font-size: 15px;
+            background: #f9fafb;
+        }
+        button {
+            background: #4f8cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 18px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-right: 6px;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+        }
+        th, td {
+            border: 1px solid #bfc9d1;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #eaf1fb;
+            color: #2d3a4b;
+        }
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+    </style>
+    <script>
+        class Employee {
+            constructor(id, name, department, password) {
+                this.id = id;
+                this.name = name;
+                this.department = department;
+                this.password = password;
+            }
+            updateDetails(name, department) {
+                this.name = name;
+                this.department = department;
+            }
+            updatePassword(newPassword) {
+                this.password = newPassword;
+            }
+            getDetails() {
+                return `<strong>ID:</strong> ${this.id}<br>
+                        <strong>Name:</strong> ${this.name}<br>
+                        <strong>Department:</strong> ${this.department}<br>
+                        <strong>Password:</strong> ${this.password}<br>`;
+            }
+        }
+
+        let employees = [];
+        let selectedEmpId = null;
+
+        function addOrUpdateEmployee(e) {
+            e.preventDefault();
+            const id = document.getElementById('empid').value;
+            const name = document.getElementById('empname').value;
+            const dept = document.getElementById('empdept').value;
+            const pwd = document.getElementById('emppwd').value;
+
+            if (selectedEmpId === null) {
+                // Add new employee
+                if (employees.some(emp => emp.id === id)) {
+                    alert("Employee ID already exists!");
+                    return;
+                }
+                employees.push(new Employee(id, name, dept, pwd));
+            } else {
+                // Update existing employee
+                const emp = employees.find(emp => emp.id === selectedEmpId);
+                if (emp) {
+                    emp.updateDetails(name, dept);
+                    emp.password = pwd;
+                }
+                selectedEmpId = null;
+            }
+            document.getElementById('empForm').reset();
+            displayEmployees();
+        }
+
+        function displayEmployees() {
+            const tbody = document.getElementById('empTableBody');
+            tbody.innerHTML = "";
+            employees.forEach((emp, idx) => {
+                const row = `<tr>
+                    <td>${emp.id}</td>
+                    <td>${emp.name}</td>
+                    <td>${emp.department}</td>
+                    <td>${emp.password}</td>
+                    <td>
+                        <button onclick="editEmployee('${emp.id}')">Edit</button>
+                        <button onclick="deleteEmployee('${emp.id}')">Delete</button>
+                        <button onclick="updatePassword('${emp.id}')">Update Password</button>
+                    </td>
+                </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function editEmployee(id) {
+            const emp = employees.find(e => e.id === id);
+            if (emp) {
+                selectedEmpId = id;
+                document.getElementById('empid').value = emp.id;
+                document.getElementById('empname').value = emp.name;
+                document.getElementById('empdept').value = emp.department;
+                document.getElementById('emppwd').value = emp.password;
+            }
+        }
+
+        function deleteEmployee(id) {
+            employees = employees.filter(e => e.id !== id);
+            displayEmployees();
+        }
+
+        function updatePassword(id) {
+            const emp = employees.find(e => e.id === id);
+            if (emp) {
+                const newPwd = prompt("Enter new password:");
+                if (newPwd) {
+                    emp.updatePassword(newPwd);
+                    displayEmployees();
+                }
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('empForm').onsubmit = addOrUpdateEmployee;
+            displayEmployees();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee CRUD</h2>
+        <form id="empForm" autocomplete="off">
+            <label>Employee ID: <input type="text" id="empid" required></label>
+            <label>Name: <input type="text" id="empname" required></label>
+            <label>Department: <input type="text" id="empdept" required></label>
+            <label>Password: <input type="password" id="emppwd" required></label>
+            <button type="submit">Add/Update Employee</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="empTableBody"></tbody>
+        </table>
+    </div>
+</body>
+</html>

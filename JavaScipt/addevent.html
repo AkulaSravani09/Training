@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> click the button below to perform an event.</p>
+    <button id="id1"> Click Me</button>
+    <script>
+        var button=document.getElementById("id1");
+        // Define the  event handler function 
+        function handleClick() {
+            alert("Button was clicked!");
+        }
+        function handlemouseOver() {
+            button.style.backgroundColor = "lightcoral";
+        }
+        button.addEventListener("mouseover", handlemouseOver);
+        function handlemouseOut() {
+            button.style.backgroundColor = "lightblue";
+        }
+        button.addEventListener("mouseout", handlemouseOut);
+
+
+        // Attach the event listener to the button
+        button.addEventListener("click", handleClick);
+
+    </script>
+
+</body>
+</html>

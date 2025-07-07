@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnMarshalling</title>
+</head>
+<body>
+    <script>
+        const json = '[{"name":"Sravani","age":19,"qualification":"B.Tech","studiedAt":"Malla Reddy University","skills":["JavaScript","HTML","CSS","Python","Java"]}]';
+        const object = JSON.parse(json); // converting json string to js array of object
+        // document.write(json);
+        document.write("<pre>" + JSON.stringify(object[0], null, 2) + "</pre>");
+    </script>
+</body>
+</html>

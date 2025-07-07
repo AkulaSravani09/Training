@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loop Control Examples</title>
+</head>
+<body>
+
+<h2>Loop Control in JavaScript</h2>
+
+<h3>1. Break Example</h3>
+<script>
+    for (var i = 1; i <= 5; i++) {
+        if (i == 3) {
+            break; // stops loop when i is 3
+        }
+        document.write("Break: " + i + "<br>");
+    }
+</script>
+
+<h3>2. Continue Example</h3>
+<script>
+    for (var i = 1; i <= 5; i++) {
+        if (i == 3) {
+            continue; // skips when i is 3
+        }
+        document.write("Continue: " + i + "<br>");
+    }
+</script>
+
+<h3>3. Return Example</h3>
+<script>
+    function showNumbers() {
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                return; // exits function when i is 3
+            }
+            document.write("Return: " + i + "<br>");
+        }
+    }
+
+    showNumbers();
+</script>
+
+</body>
+</html>

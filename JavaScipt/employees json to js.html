@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees JSON to JS</title>
+</head>
+<body>
+    <script>
+        // JSON string representing employees
+        const jsonString =`[
+            {
+                "name": "Sravani",
+                "age": 19,
+                "qualification": "B.Tech",
+                "studiedAt": "Malla Reddy University",
+                "skills": ["JavaScript", "HTML", "CSS", "Python", "Java"]
+            },
+            {
+                "name": "Rahul",
+                "age": 22,
+                "qualification": "MCA",
+                "studiedAt": "Osmania University",
+                "skills": ["C", "C++", "Python"]
+            },
+            {
+                "name": "Priya",
+                "age": 21,
+                "qualification": "B.Sc",
+                "studiedAt": "Loyola College",
+                "skills": ["Java", "SQL"]
+            },
+            {
+                "name": "Anil",
+                "age": 23,
+                "qualification": "MBA",
+                "studiedAt": "IIM Bangalore",
+                "skills": ["Management", "Excel"]
+            },
+            {
+                "name": "Divya",
+                "age": 20,
+                "qualification": "B.Com",
+                "studiedAt": "St. Francis College",
+                "skills": ["Accounting", "Tally"]
+            }
+        ]`;
+
+        // Convert JSON string to JavaScript array of objects
+        const employees = JSON.parse(jsonString);
+
+        // Display the JavaScript array as formatted JSON
+        document.write("<pre>" + JSON.stringify(employees, null, 2) + "</pre>");
+    </script>

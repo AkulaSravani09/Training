@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainee OOPS Example</title>
+    <script>
+        function updatePassword(newPass) {
+            this.password = newPass;
+        }
+        // Constructor function for Trainee
+        function Trainee(fname, lname, course, cost) {
+            this.fname = fname;
+            this.lname = lname;
+            this.course = course;
+            this.cost = cost;
+            this.password = "";
+            this.getName = function() {
+                return this.fname + " " + this.lname;
+            };
+            this.getCourse = function() {
+                return this.course;
+            };
+            this.getCost = function() {
+                return this.cost;
+            };
+            this.updatePassword = updatePassword;
+        }
+    </script>
+</head>
+<body>
+    <h2>Trainee Info</h2>
+    <script>
+        var t = new Trainee("Sravani", "Akula", "AI & ML", 50000);
+        t.updatePassword("new123");
+        document.write("Name: " + t.getName() + "<br>");
+        document.write("Course: " + t.getCourse() + "<br>");
+        document.write("Cost: " + t.getCost() + "<br>");
+        document.write("Password: " + t.password + "<br>");
+    </script>
+</body>
+</html>

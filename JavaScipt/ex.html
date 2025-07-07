@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Promise example
+    const promise = new Promise((resolve, reject) => {
+        // resolve("success")
+        reject("reject");
+    });
+    promise.then((result) => {
+        console.log(result);
+    }).catch((err) => {
+        console.log("catch", err);
+    });
+
+    // Fetch example (fixed: define API variable)
+    const API = "https://jsonplaceholder.typicode.com/posts/1";
+    fetch(API)
+        .then(res => res.json())
+        .then(result => console.log(result))
+        .catch(error => console.log("fetch error", error));
+    </script>
+</body>
+</html>

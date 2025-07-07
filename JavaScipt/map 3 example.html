@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Map Activity</title>
+</head>
+<body>
+    <div id="studentTable"></div>
+    <script>
+    const students = new Map();
+
+    // Collect 5 students' info
+    for (let i = 1; i <= 5; i++) {
+        const id = prompt("Enter ID for student " + i + ":");
+        const name = prompt("Enter name for student " + i + ":");
+        students.set(id, name);
+    }
+
+    // Prompt for search ID
+    let searchId = prompt("Enter student ID to search:");
+    let output = "";
+
+    if (students.has(searchId)) {
+        output = "<table border='1'><tr><th>ID</th><th>Name</th></tr>" +
+            "<tr><td>" + searchId + "</td><td>" + students.get(searchId) + "</td></tr></table>";
+    } else {
+        output = "<p>Student ID not found!</p>";
+    }
+
+    document.getElementById('studentTable').innerHTML = output;
+</script>
+</body>
+</html>

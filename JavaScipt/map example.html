@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Example</title>
+</head>
+<body>
+    <script>
+        // let map = new Map([iterable]);
+        let empMap = new Map( [ ["Sravai", 111],["Achuth", 112], ["Akshay", 113] ]);
+        empMap.set("Akula",114);
+        empMap.set("Ammu", 115);
+        for(let[key,value] of empMap)
+        {
+            document.write(`${key}: ${value} <br>`);
+        }   
+    </script>
+    
+</body>
+</html>

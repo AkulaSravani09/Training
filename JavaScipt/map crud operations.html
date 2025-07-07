@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Map CRUD Example</title>
+</head>
+<body>
+<h2>Student Map CRUD Example</h2>
+<button onclick="addStudent()">Add Student</button>
+<button onclick="updateStudent()">Update Student</button>
+<button onclick="deleteStudent()">Delete Student</button>
+<button onclick="renderTable()">Show All Students</button>
+<button onclick="readStudent()">Read Student By ID</button>
+<div id="studentTable"></div>
+<script>
+    const students = new Map();
+    let nextId = 1; // Auto-increment student ID
+
+    // CREATE: Add student with auto-generated ID
+    function addStudent() {
+    const name = prompt("Enter student name:");
+    if (!name) return;
+      const id = "S" + nextId++; // e.g., S1, S2, S3...
+    students.set(id, name);
+    alert(`Student added with ID: ${id}`);
+    renderTable();
+    }
+
+    // READ: Display all students
+    function renderTable() {
+    if (students.size === 0) {
+        document.getElementById('studentTable').innerHTML = "<p>No students found.</p>";
+        return;
+    }
+    let table = "<table border='1'><tr><th>ID</th><th>Name</th></tr>";
+    for (let [id, name] of students) {
+        table += `<tr><td>${id}</td><td>${name}</td></tr>`;
+    }
+    table += "</table>";
+    document.getElementById('studentTable').innerHTML = table;
+    }
+
+    // READ: Display a single student by ID
+    function readStudent() {
+    const id = prompt("Enter student ID to view (e.g., S1):");
+    if (!students.has(id)) {
+        alert("Student ID not found.");
+        return;
+    }
+    const name = students.get(id);
+    document.getElementById('studentTable').innerHTML =
+        `<table border='1'><tr><th>ID</th><th>Name</th></tr>
+        <tr><td>${id}</td><td>${name}</td></tr></table>`;
+    }
+
+    // UPDATE: Update a student's name
+    function updateStudent() {
+    const id = prompt("Enter student ID to update (e.g., S1):");
+    if (!students.has(id)) {
+        alert("Student ID not found for update.");
+        return;
+    }
+    const newName = prompt("Enter new name for student ID " + id + ":");
+    if (!newName) return;
+    students.set(id, newName);
+    alert("Student updated!");
+    renderTable();
+    }
+
+    // DELETE: Delete a student
+    function deleteStudent() {
+    const id = prompt("Enter student ID to delete (e.g., S1):");
+    if (!students.has(id)) {
+        alert("Student ID not found for deletion.");
+        return;
+    }
+    students.delete(id);
+    alert("Student deleted!");
+    renderTable();
+    }
+
+    // Show empty table on load
+    renderTable();
+</script>
+</body>
+</html>
