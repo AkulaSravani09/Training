@@ -1,0 +1,161 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+  margin: 0;
+  padding: 20px;
+}
+
+form {
+  max-width: 450px;
+  margin: 20px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+form button {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+#cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.dark {
+  background: #1c1c1c;
+  color: #e0e0e0;
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.border-square img {
+  border-radius: 0;
+}
+
+.border-rounded img {
+  border-radius: 10px;
+}
+
+.border-circle img {
+  border-radius: 50%;
+}
+
+.card button {
+  margin: 6px 4px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:nth-child(4) {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.card button:nth-child(4):hover {
+  background-color: #212529;
+}
+
+.card button:nth-child(5) {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.card button:nth-child(5):hover {
+  background-color: #e0a800;
+}
+
+.card button:nth-child(6) {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.card button:nth-child(6):hover {
+  background-color: #c82333;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+
+  form {
+    padding: 20px;
+  }
+}
